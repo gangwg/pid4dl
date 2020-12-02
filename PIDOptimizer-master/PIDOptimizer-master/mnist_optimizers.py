@@ -16,15 +16,15 @@ import matplotlib.pyplot as plt
 
 # Hyper Parameters
 input_size = 784
-hidden_size = 1000
+hidden_size = 128
 num_classes = 10
 num_epochs = 5
-batch_size = 100
+batch_size = 128
 learning_rate = 0.1
 
-I = 1
+I = .2
 I = float(I)
-D = 1
+D = .2
 D = float(D)
 
 #logger = Logger('pid.txt', title='mnist')
@@ -116,7 +116,7 @@ def training(optimizer_sign=0):
     elif optimizer_sign == 1:
         optimizer = torch.optim.RMSprop(net.parameters(), lr=learning_rate)
     elif optimizer_sign == 2:
-        optimizer = torch.optim.Adam(net.parameters(), lr=learning_rate)
+        optimizer = torch.optim.Adam(net.parameters(), lr=.001)
     elif optimizer_sign == 3:
         optimizer = SGD(net.parameters(), lr=learning_rate, weight_decay=0.001, momentum=0.9)
     elif optimizer_sign == 4:
